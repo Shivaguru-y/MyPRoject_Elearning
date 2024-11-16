@@ -1,0 +1,198 @@
+<div class="container mt-5 w-50" data-aos="zoom-out">
+  <div class="card cardshadow-sm mt-3 mb-3" id="card1">
+    <div class="card-body">
+      <!-- Tab navigation -->
+      <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a
+            class="nav-link"
+            [class.active]="activeTab === 'login'"
+            (click)="setActiveTab('login')"
+            href="#pills-login"
+            role="tab"
+            aria-controls="pills-login"
+            aria-selected="true"
+          >Login</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a
+            class="nav-link"
+            [class.active]="activeTab === 'register'"
+            (click)="setActiveTab('register')"
+            href="#pills-register"
+            role="tab"
+            aria-controls="pills-register"
+            aria-selected="true"
+          >Register</a>
+        </li>
+      </ul>
+
+      <!-- Tab content -->
+      <div class="tab-content">
+        <!-- Login Tab -->
+        <div
+          class="tab-pane fade"
+          [class.show]="activeTab === 'login'"
+          [class.active]="activeTab === 'login'"
+          id="pills-login"
+          role="tabpanel"
+          aria-labelledby="tab-login"
+        >
+          <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <label class="form-label" for="loginName">Email or username</label>
+              <input
+                type="email"
+                id="loginName"
+                class="form-control"
+                formControlName="email"
+              />
+              <div
+                *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+                class="text-danger"
+              >
+                <small *ngIf="loginForm.get('email')?.hasError('required')">Email is required</small>
+                <small *ngIf="loginForm.get('email')?.hasError('email')">Invalid email address</small>
+              </div>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <label class="form-label" for="loginPassword">Password</label>
+              <input
+                type="password"
+                id="loginPassword"
+                class="form-control"
+                formControlName="password"
+              />
+              <div
+                *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+                class="text-danger"
+              >
+                <small *ngIf="loginForm.get('password')?.hasError('required')">Password is required</small>
+              </div>
+            </div>
+
+            <!-- Submit button -->
+            <button
+              type="submit"
+              class="btn btn-primary btn-block mb-4"
+              [disabled]="loginForm.invalid"
+            >
+              Sign in
+            </button>
+          </form>
+        </div>
+
+        <!-- Register Tab -->
+        <div
+          class="tab-pane fade"
+          [class.show]="activeTab == 'register'"
+          [class.active]="activeTab == 'register'"
+          id="pills-register"
+          role="tabpanel"
+          aria-labelledby="tab-register"
+        >
+          <form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()">
+            <!-- Username input -->
+            <div class="form-outline mb-4">
+              <label class="form-label" for="registerUsername">Username</label>
+              <input
+                type="text"
+                id="registerUsername"
+                class="form-control"
+                formControlName="name"
+              />
+              <div
+                *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched"
+                class="text-danger"
+              >
+                <small *ngIf="registerForm.get('username')?.hasError('required')">Username is required</small>
+              </div>
+            </div>
+
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <label class="form-label" for="registerEmail">Email</label>
+              <input
+                type="email"
+                id="registerEmail"
+                class="form-control"
+                formControlName="email"
+              />
+              <div
+                *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched"
+                class="text-danger"
+              >
+                <small *ngIf="registerForm.get('email')?.hasError('required')">Email is required</small>
+                <small *ngIf="registerForm.get('email')?.hasError('email')">Invalid email address</small>
+              </div>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <label class="form-label" for="registerPassword">Password</label>
+              <input
+                type="password"
+                id="registerPassword"
+                class="form-control"
+                formControlName="password"
+              />
+              <div
+                *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched"
+                class="text-danger"
+              >
+                <small *ngIf="registerForm.get('password')?.hasError('required')">Password is required</small>
+              </div>
+            </div>
+
+            <!-- Repeat Password input -->
+            <div class="form-outline mb-4">
+              <label class="form-label" for="registerRepeatPassword">Repeat password</label>
+              <input
+                type="password"
+                id="registerRepeatPassword"
+                class="form-control"
+                formControlName="repeatPassword"
+              />
+              <div
+                *ngIf="registerForm.get('repeatPassword')?.invalid && registerForm.get('repeatPassword')?.touched"
+                class="text-danger"
+              >
+                <small *ngIf="registerForm.get('repeatPassword')?.hasError('required')">Please repeat the password</small>
+              </div>
+            </div>
+
+            <!-- Checkbox -->
+            <div class="form-check d-flex justify-content-center mb-4">
+              <input
+                class="form-check-input me-2"
+                type="checkbox"
+                formControlName="agreeToTerms"
+              />
+              <label class="form-check-label" for="registerCheck">
+                I have read and agree to the terms
+              </label>
+              <div
+                *ngIf="registerForm.get('agreeToTerms')?.invalid && registerForm.get('agreeToTerms')?.touched"
+                class="text-danger"
+              >
+                <small *ngIf="registerForm.get('agreeToTerms')?.hasError('requiredTrue')">You must agree to the terms</small>
+              </div>
+            </div>
+
+            <!-- Submit button -->
+            <button
+              type="submit"
+              class="btn btn-primary btn-block mb-2"
+              [disabled]="registerForm.invalid"
+            >
+              Sign up
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

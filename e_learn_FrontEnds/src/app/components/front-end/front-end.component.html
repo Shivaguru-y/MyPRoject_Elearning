@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4" *ngFor="let i of courses">
+      <div class="card mt-2 mb-3 shadow-lg">
+        <div class="card-body">
+          <h5 class="card-title">{{i.courseName}}</h5>
+          <p class="card-text">{{i.description}}</p>
+          <div style="display: flex;justify-content: space-between">
+            <a href="{{i.courseLink}}" target="_blank" class="btn btn-primary">
+              View Course
+            </a>
+            <i class="bi bi-share pe-3 " (click)="shareCourse()"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

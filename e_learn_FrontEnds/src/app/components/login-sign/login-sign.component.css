@@ -1,0 +1,43 @@
+
+.card {
+    max-width: 400px!important;
+    margin: 0 auto;
+    padding: 20px;
+    height: 500px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd; /* Optional: Add a border */
+
+    overflow-y: scroll;
+    scrollbar-color: blue;
+    ::-webkit-scrollbar {
+        width: 0; /* Chrome, Safari */
+      }
+  }
+  .cardshadow-sm {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  }
+  .card {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .nav-pills .nav-link {
+    border-radius: 0;
+    padding: 10px 20px;
+  }
+  .nav-pills .nav-link.active {
+    background-color: #007bff;
+  }
+  /* #signin{
+    margin-top: 15%;
+    margin-left: 40%;
+  }
+  #signin2{
+    margin-top: 11%;
+    margin-left: 37%;
+  } */
+  .login-signup {
+    max-width: 400px; /* Set a maximum width for the card */
+    margin: 20px auto; /* Center the card with some margin on top */
+  }
