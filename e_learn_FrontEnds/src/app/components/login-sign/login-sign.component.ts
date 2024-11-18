@@ -21,7 +21,7 @@ export class LoginOrSignComponent {
   ) {
     // Login form initialization
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required]],
       password: ['', Validators.required],
     });
 

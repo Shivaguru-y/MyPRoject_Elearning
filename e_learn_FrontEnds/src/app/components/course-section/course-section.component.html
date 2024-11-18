@@ -2,10 +2,10 @@
     <div class="container">
       <h2>Learn the Skills to Become a:</h2>
       <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
-  
+
       <div class="row">
         <div class="col-md-4" *ngFor="let stack of stacks" [attr.key]="stack.stackId">
-          <div class="card p-3">
+          <div class="card">
             <a
               class="btn btn-primary"
               style="width: 100%"
@@ -18,4 +18,3 @@
       </div>
     </div>
   </section>
-  

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-front-end',
@@ -12,7 +13,7 @@ export class FrontEndComponent implements OnInit {
   courses : any;
   error: string | null = null;
 
-  constructor(private route: ActivatedRoute,private http: HttpClient) {}
+  constructor(private route: ActivatedRoute,private http: HttpClient,private router:Router) {}
 
   ngOnInit(): void {
 
@@ -22,6 +23,12 @@ export class FrontEndComponent implements OnInit {
       this.getCoursesByStack(this.stackId);
 
     });
+  }
+
+  gotoMaterials(course: any) {
+    console.log("This the selected Stacks",course);
+    this.router.navigate(['/materials', course.courseId]);
+
   }
   getCoursesByStack(stackId: number):void{
     this.http.get(`http://localhost:8080/courses/getCoursebyStack/${stackId}`).subscribe(

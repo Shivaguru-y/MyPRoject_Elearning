@@ -2,13 +2,17 @@ package com.e.learning.repository;
 
 import com.e.learning.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
+
     // Custom query to find a user by email and password
-    Optional<User> findByEmailAndPassword(String email, String password);
+    @Query(nativeQuery = true, value = "SELECT * FROM User WHERE (email = :email AND password = :password) OR (username = :email AND password = :password)")
+    Optional<User> findByEmailorNameAndPassword(@Param("email") String email, @Param("password") String password);
 
     Optional<User> findByEmail(String email);
 }

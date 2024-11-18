@@ -1,0 +1,31 @@
+ .card:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ }
+
+ .card-body p {
+   font-size: 0.9rem;
+   line-height: 1.5;
+   height: 300px;
+
+   /* Ensure long descriptions are scrollable */
+ }
+
+ .card-title {
+   font-size: 1.25rem;
+   font-weight: bold;
+ }
+
+ .list-group-item {
+   font-size: 0.95rem;
+ }
+ .main_part{
+  height: 400px;
+ }
+
+ .card-body {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+  overflow-y: scroll;
+ }

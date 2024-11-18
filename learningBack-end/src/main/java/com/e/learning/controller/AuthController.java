@@ -46,11 +46,11 @@ public class AuthController {
         String email = loginRequest.getEmail();
         String password = loginRequest.getPassword();
 
-        Optional<Admin> admin = adminRepository.findByEmailAndPassword(email, password);
+        Optional<Admin> admin = adminRepository.findByEmailorNameAndPassword(email, password);
         if (admin.isPresent()) {
             return ResponseEntity.ok(new LoginResponse("admin", admin.get().getAdminId()));
         }
-        Optional<User> user = userRepository.findByEmailAndPassword(email, password);
+        Optional<User> user = userRepository.findByEmailorNameAndPassword(email, password);
         if (user.isPresent()) {
             return ResponseEntity.ok(new LoginResponse("user", user.get().getUserId()));
         }

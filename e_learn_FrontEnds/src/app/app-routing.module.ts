@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CourseSectionComponent } from './components/course-section/course-section.component';
 import { LoginOrSignComponent } from './components/login-sign/login-sign.component';
 import { FrontEndComponent } from './components/front-end/front-end.component';
+import { MaterialsComponent } from './components/materials/materials.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,11 @@ const routes: Routes = [
   {
     path:"Front-End/:stackId",
     component:FrontEndComponent
+  },
+  {
+    path: "materials/:courseId",
+    component:MaterialsComponent
+
   },
   {
     path: '**',
