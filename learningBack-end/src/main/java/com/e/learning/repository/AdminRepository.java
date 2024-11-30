@@ -6,7 +6,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.e.learning.model.Admin;
-import com.e.learning.model.User;
 
 import java.util.Optional;
 
